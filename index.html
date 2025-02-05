@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YourSmart AI - Under Construction</title>
+  <style>
+    /* Color Palette */
+    :root {
+      --primary-green: #075E54;      /* Header and Footer */
+      --accent-green:  #25D366;       /* Accent for links */
+      --dark-bg:       #1F1F1F;       /* Dark background for body */
+      --white:         #FFFFFF;
+    }
+
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--primary-green);
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 5px;
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    main h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    main p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+    main a {
+      color: var(--accent-green);
+      text-decoration: none;
+    }
+    main a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-green);
+      text-align: center;
+      padding: 15px;
+    }
+
+    /* Blinking caret effect */
+    .blink {
+      animation: blink-animation 1.5s steps(2, start) infinite;
+    }
+    @keyframes blink-animation {
+      to { visibility: hidden; }
+    }
+
+    /* Responsive Styles */
+    /* For tablets and smaller devices */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+      main h2 {
+        font-size: 1.5em;
+      }
+      main p {
+        font-size: 1em;
+      }
+      header, footer {
+        padding: 15px;
+      }
+      main {
+        padding: 15px;
+      }
+    }
+
+    /* For mobile phones */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.75em;
+      }
+      main h2 {
+        font-size: 1.25em;
+      }
+      main p {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>YourSmart-AI</h1>
+  </header>
+
+  <main>
+    <h2>Under Construction <span class="blink">|</span></h2>
+    <p>Details coming soon.</p>
+    <p>
+      Contact us at:
+      <a href="mailto:contact@syed-wassi-ul-haque.com">
+        contact@syed-wassi-ul-haque.com
+      </a>
+    </p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 YourSmart-AI. All rights reserved.</p>
+  </footer>
+</body>
+</html>
