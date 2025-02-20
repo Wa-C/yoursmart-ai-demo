@@ -2,138 +2,423 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>YourSmart AI - Under Construction</title>
-  <style>
-    /* Color Palette */
-    :root {
-      --primary-green: #075E54;      /* Header and Footer */
-      --accent-green:  #25D366;       /* Accent for links */
-      --dark-bg:       #1F1F1F;       /* Dark background for body */
-      --white:         #FFFFFF;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YourSmart-AI | Cutting-Edge AI Solutions</title>
 
-    /* Basic Reset */
-    * {
+  <!-- Bootstrap 5 CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Animate.css for basic entrance animations -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <!-- AOS for scroll animations -->
+  <link
+    href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <style>
+    /* ------------------------------
+       Global Styles
+    ------------------------------ */
+    body {
+      background-color: #0b0d11; /* Dark background */
+      color: #e0e0e0;            /* Light text for contrast */
+      font-family: "Roboto", sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
-
-    /* Global Styles */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--dark-bg);
-      color: var(--white);
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    /* Header */
-    header {
-      background-color: var(--primary-green);
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 2.5em;
-      margin-bottom: 5px;
-    }
-
-    /* Main Content */
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
-    main h2 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-    main p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-    }
-    main a {
-      color: var(--accent-green);
+    a, a:hover {
       text-decoration: none;
     }
-    main a:hover {
-      text-decoration: underline;
+
+    /* ------------------------------
+       Modern Navbar
+    ------------------------------ */
+    .navbar {
+      background-color: rgba(11, 13, 17, 0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      padding: 0.2rem 2rem; /* Reduced vertical padding for a compact look */
+    }
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+    }
+    .navbar-brand img {
+      /* Logo stays at 220px in height */
+      height: 220px;
+      width: auto;
+      transition: transform 0.3s;
+    }
+    .navbar-brand img:hover {
+      transform: scale(1.1); /* Slight hover zoom */
+    }
+    .navbar-toggler {
+      border: none;
+      outline: none;
+    }
+    .navbar-toggler-icon {
+      filter: invert(100%) brightness(200%);
+    }
+    .nav-link {
+      position: relative;
+      color: #e0e0e0 !important;
+      margin: 0 1rem;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-link:hover {
+      color: #c0c0c0 !important;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: #c0c0c0;
+      transition: width 0.3s;
+    }
+    .nav-link:hover::after {
+      width: 100%;
     }
 
-    /* Footer */
-    footer {
-      background-color: var(--primary-green);
+    /* ------------------------------
+       Hero Section
+    ------------------------------ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0b0d11, #14171c);
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("your-ai-background.jpg") no-repeat center center/cover;
+      opacity: 0.2;
+      z-index: 1;
+      animation: zoomIn 20s infinite alternate;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(1); }
+      to   { transform: scale(1.1); }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
       text-align: center;
-      padding: 15px;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
     }
 
-    /* Blinking caret effect */
-    .blink {
-      animation: blink-animation 1.5s steps(2, start) infinite;
+    /* ------------------------------
+       Section Titles
+    ------------------------------ */
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+      font-weight: 700;
     }
-    @keyframes blink-animation {
-      to { visibility: hidden; }
-    }
-
-    /* Responsive Styles */
-    /* For tablets and smaller devices */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2em;
-      }
-      main h2 {
-        font-size: 1.5em;
-      }
-      main p {
-        font-size: 1em;
-      }
-      header, footer {
-        padding: 15px;
-      }
-      main {
-        padding: 15px;
-      }
+    .section-title::after {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 3px;
+      background-color: #c0c0c0;
+      left: 25%;
+      bottom: -10px;
     }
 
-    /* For mobile phones */
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 1.75em;
-      }
-      main h2 {
-        font-size: 1.25em;
-      }
-      main p {
-        font-size: 0.9em;
-      }
+    /* ------------------------------
+       About Section
+    ------------------------------ */
+    #about img {
+      max-width: 100%;
+      border: 2px solid #1a1c20;
+      border-radius: 5px;
+    }
+
+    /* ------------------------------
+       Services Section
+    ------------------------------ */
+    .card {
+      background-color: #14171c;
+      border: none;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+    }
+    .card i {
+      color: #c0c0c0;
+    }
+    .card-title {
+      color: #e0e0e0;
+    }
+    .card-text {
+      color: #c0c0c0;
+    }
+
+    /* ------------------------------
+       Contact Section
+    ------------------------------ */
+    .form-control {
+      background-color: #1a1c20;
+      color: #e0e0e0;
+      border: 1px solid #333;
+    }
+    .form-control:focus {
+      background-color: #1a1c20;
+      box-shadow: 0 0 0 0.2rem rgba(192,192,192,0.25);
+    }
+    /* Additional contact info styling */
+    .contact-info {
+      font-size: 1rem;
+      margin-top: 1rem;
+      color: #c0c0c0;
+    }
+
+    /* ------------------------------
+       Under Construction Dialogue Box
+    ------------------------------ */
+    .under-construction {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: rgba(11, 13, 17, 0.95);
+      color: #e0e0e0;
+      border: 2px solid #c0c0c0;
+      padding: 1rem;
+      border-radius: 8px;
+      z-index: 9999;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    }
+
+    /* ------------------------------
+       Footer
+    ------------------------------ */
+    footer {
+      background-color: #0b0d11;
+      padding: 40px 0;
+      border-top: 1px solid #1a1c20;
+      text-align: center;
+    }
+    footer a {
+      color: #c0c0c0;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #e0e0e0;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>YourSmart-AI</h1>
-  </header>
-
-  <main>
-    <h2>Under Construction <span class="blink">|</span></h2>
-    <p>Details coming soon.</p>
-    <p>
-      Contact us at:
-      <a href="mailto:contact@syed-wassi-ul-haque.com">
-        contact@syed-wassi-ul-haque.com
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <!-- Using logo.png for the company logo -->
+      <a class="navbar-brand" href="#">
+        <img src="logo.png" alt="YourSmart-AI Logo" />
       </a>
-    </p>
-  </main>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link animate__animated animate__fadeInDown" href="#hero">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link animate__animated animate__fadeInDown" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link animate__animated animate__fadeInDown" href="#services">Services</a>
+          </li>
+          <!-- Testimonials link removed -->
+          <li class="nav-item">
+            <a class="nav-link animate__animated animate__fadeInDown" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1 class="animate__animated animate__fadeInDown">
+        Empowering the Future with AI
+      </h1>
+      <p class="lead animate__animated animate__fadeInUp">
+        Cutting-edge solutions designed to revolutionize your business.
+      </p>
+      <a href="#about" class="btn btn-lg btn-outline-light animate__animated animate__zoomIn">
+        Discover More
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-5">
+    <div class="container" data-aos="fade-up">
+      <div class="row align-items-center">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <h2 class="section-title">About Us</h2>
+          <p>
+            At <strong>YourSmart-AI</strong>, we integrate state-of-the-art artificial intelligence
+            to drive innovation and efficiency across industries. Our tailored solutions ensure your business stays ahead in today’s dynamic tech landscape.
+          </p>
+          <a href="#services" class="btn btn-outline-light mt-3">Our Solutions</a>
+        </div>
+        <div class="col-md-6">
+          <img src="your-about-image.jpg" class="img-fluid animate__animated animate__fadeInRight" alt="About YourSmart-AI" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-5">
+    <div class="container" data-aos="fade-up">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Our Services</h2>
+        <p>Innovative AI-powered solutions tailored for your business growth.</p>
+      </div>
+      <div class="row g-4">
+        <!-- Service Card 1 -->
+        <div class="col-md-4" data-aos="zoom-in">
+          <div class="card h-100 text-center p-4">
+            <i class="fas fa-brain fa-3x mb-3"></i>
+            <h5 class="card-title">AI Consulting</h5>
+            <p class="card-text">
+              Expert insights and strategies to seamlessly integrate AI into your business.
+            </p>
+          </div>
+        </div>
+        <!-- Service Card 2 -->
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="150">
+          <div class="card h-100 text-center p-4">
+            <i class="fas fa-chart-line fa-3x mb-3"></i>
+            <h5 class="card-title">Data Engineering</h5>
+            <p class="card-text">
+              Transform raw data into actionable insights with our advanced analytics tools.
+            </p>
+          </div>
+        </div>
+        <!-- Service Card 3 -->
+        <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="card h-100 text-center p-4">
+            <i class="fas fa-cogs fa-3x mb-3"></i>
+            <h5 class="card-title">Automation</h5>
+            <p class="card-text">
+              Streamline operations with intelligent automation solutions that drive efficiency.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5">
+    <div class="container" data-aos="fade-up">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Contact Us</h2>
+        <p>Ready to revolutionize your business with AI? Get in touch with us!</p>
+        <p class="contact-info"><strong>Contact us at:</strong> contact@syed-wassi-ul-haque.com</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Your Name" />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="name@example.com" />
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-light w-100">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Under Construction Dialogue Box -->
+  <div class="under-construction">
+    <p><strong>Website Under Construction</strong><br>
+      Not finished yet. Please keep an eye out for the updated version!
+    </p>
+  </div>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 YourSmart-AI. All rights reserved.</p>
+    <div class="container">
+      <p>&copy; 2025 YourSmart-AI. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="me-3"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
   </footer>
+
+  <!-- Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS Library JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  </script>
 </body>
 </html>
